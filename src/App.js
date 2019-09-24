@@ -9,42 +9,46 @@ export default class App extends Component {
 
   state = {
     dashboard: {
-      greetings: ['greetings'],
-      quotes: ['hello world'],
-      image: {
-        image_url: 'https://images.unsplash.com/photo-1488197047962-b48492212cda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80',
-        photographer: 'you',
-        location: 'your moms house'
-      }
+      greetings: [],
+      images: [],
+      quotes: []
     },
     weather: {
-      temperature: '82F',
+      temperature: '25C',
       location: 'Denver'
-    }
-  }
-
-  componentDidMount = () => {
-    // this.setCurrentWeather()
-    // fetch('http://localhost:3000')
-    // .then(resp => resp.json())
-    //   .then(res => this.setState({
-    //     Dashboards: res
-    //   })) .then()  MAKE SURE YOU GRAB A SAMPLE OF THE RESULTS*********************
-    // this.setState({
-    //   Dashboard: 
-    // })
-    document.body.style.backgroundImage = `url(${this.state.dashboard.image.image_url})`
-  }
-
-  setCurrentWeather = () => {
-    fetch('https://api.darksky.net/forecast/ebdae7afd91ae1fdd3f0a28b1d73d16f/39.7392/104.9903')
-    .then(resp => resp.json())
-    .then(console.log)
+    },
+    image: {}
   }
 
   sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)]
   }
+
+  setBackgroundImage = () => {
+    let image = this.sample(this.state.dashboard.images)
+    document.body.style.backgroundImage = `url(${image.url})`
+    this.setState({
+      image: image
+    })
+  }
+
+  componentDidMount = () => {
+    fetch('http://localhost:3000/greetings')
+    .then(resp => resp.json())
+    .then(results => this.setState({
+      dashboard: results
+    }))
+    .then(this.setBackgroundImage)
+  }
+
+
+  // setCurrentWeather = () => {
+  //   fetch('https://api.darksky.net/forecast/ebdae7afd91ae1fdd3f0a28b1d73d16f/39.7392/104.9903')
+  //   .then(resp => resp.json())
+  //   .then(console.log)
+  // }
+
+  
 
   render() {
     return (
@@ -54,7 +58,7 @@ export default class App extends Component {
           greetings={this.state.dashboard.greetings}
           sample={this.sample}
         />
-        <Footer image={this.state.dashboard.image}
+        <Footer image={this.state.image}
           quotes={this.state.dashboard.quotes}
           sample={this.sample} 
         />
