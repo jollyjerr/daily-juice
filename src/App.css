@@ -10,7 +10,7 @@
 .nav {
     display: flex;
     justify-content: space-between;
-    font-size: 106.25%;
+    font-size: 130.25%;
     font-weight: 500;
 }
 
@@ -31,8 +31,9 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    font-size: 1.125rem;
+    font-size: 110.25%;
     font-weight: 300;
+    margin-left: -4%;
 }
 
 .clock {

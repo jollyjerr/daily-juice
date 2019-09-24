@@ -18,12 +18,13 @@ export default class App extends Component {
       }
     },
     weather: {
-      temperature: '25c',
+      temperature: '82F',
       location: 'Denver'
     }
   }
 
   componentDidMount = () => {
+    // this.setCurrentWeather()
     // fetch('http://localhost:3000')
     // .then(resp => resp.json())
     //   .then(res => this.setState({
@@ -33,6 +34,12 @@ export default class App extends Component {
     //   Dashboard: 
     // })
     document.body.style.backgroundImage = `url(${this.state.dashboard.image.image_url})`
+  }
+
+  setCurrentWeather = () => {
+    fetch('https://api.darksky.net/forecast/ebdae7afd91ae1fdd3f0a28b1d73d16f/39.7392/104.9903')
+    .then(resp => resp.json())
+    .then(console.log)
   }
 
   sample(arr) {
