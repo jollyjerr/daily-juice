@@ -12,7 +12,7 @@ export default class App extends Component {
       greetings: ['greetings'],
       quotes: ['hello world'],
       image: {
-        image_url: 'https://images.unsplash.com/photo-1569271532860-dd35503aaf1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
+        image_url: 'https://images.unsplash.com/photo-1488197047962-b48492212cda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80',
         photographer: 'you',
         location: 'your moms house'
       }
@@ -32,6 +32,7 @@ export default class App extends Component {
     // this.setState({
     //   Dashboard: 
     // })
+    document.body.style.backgroundImage = `url(${this.state.dashboard.image.image_url})`
   }
 
   sample(arr) {

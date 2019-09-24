@@ -6,8 +6,8 @@ export default function Main(props) {
 
     return (
         <div className="center">
-            <Clock format={'HH:mm'} ticking={true} />
-            <h2>{props.sample(greetings)}</h2>
+            <Clock format={'HH:mm'} ticking={true} className="clock" />
+            <h2 className="message">{props.sample(greetings)}</h2>
         </div>
     )
 }

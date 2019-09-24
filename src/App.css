@@ -1,1 +1,56 @@
+.App {
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, .1);
+    width: 100%;
+    height: 100%;
+}
 
+.nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 106.25%;
+    font-weight: 500;
+}
+
+.center {
+    z-index: 1;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.125rem;
+    font-weight: 300;
+}
+
+.clock {
+    font-size: 1050%;
+    font-weight: 500;
+    letter-spacing: -5px;
+    /* font overide to match layout */
+}
+
+.message {
+    font-size: 337.5%;
+    margin: 0;
+}
+
+.footer-quote {
+    align-self: center;
+}
+
+.footer-todo {
+    align-self: center;
+}
