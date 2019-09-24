@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Photo() {
+export default function Photo(props) {
+
     return (
         <div className="footer-photo">
-            photo info
+            <p> {props.image.photographer} </p>
+            <p> {props.image.location} </p>
         </div>
     )
 }

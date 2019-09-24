@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function Weather() {
+export default function Weather(props) {
     return (
         <div className="nav-weather">
-            Weather
+            <p> {props.weather.temperature} </p>
+            <p> {props.weather.location} </p>
         </div>
     )
 }

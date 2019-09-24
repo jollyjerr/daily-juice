@@ -7,11 +7,7 @@ export default function Main(props) {
     return (
         <div className="center">
             <Clock format={'HH:mm'} ticking={true} />
-            <h2>{sample(greetings)}</h2>
+            <h2>{props.sample(greetings)}</h2>
         </div>
     )
-}
-
-function sample(arr) {
-    return arr[Math.floor(Math.random() * arr.length)] 
 }

@@ -8,15 +8,6 @@ import Footer from './containers/Footer'
 export default class App extends Component {
 
   state = {
-    Dashboards: [{
-      greetings: ['greetings'],
-      quotes: ['hello world'],
-      image: {
-        image_url: 'https://images.unsplash.com/photo-1569271532860-dd35503aaf1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
-        photographer: 'you',
-        location: 'your moms house'
-      }
-    }],
     dashboard: {
       greetings: ['greetings'],
       quotes: ['hello world'],
@@ -25,6 +16,10 @@ export default class App extends Component {
         photographer: 'you',
         location: 'your moms house'
       }
+    },
+    weather: {
+      temperature: '25c',
+      location: 'Denver'
     }
   }
 
@@ -39,15 +34,21 @@ export default class App extends Component {
     // })
   }
 
+  sample(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
+
   render() {
     return (
       <main className="App">
-        <Nav  />
+        <Nav weather={this.state.weather} />
         <Main 
           greetings={this.state.dashboard.greetings}
+          sample={this.sample}
         />
-        <Footer photo={this.state.dashboard.photo}
-          quotes={this.state.dashboard.quotes} 
+        <Footer image={this.state.dashboard.image}
+          quotes={this.state.dashboard.quotes}
+          sample={this.sample} 
         />
       </main>
     )
